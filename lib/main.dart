@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase/firebase.dart' as fb;
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();          // Needed 4 
+  await Firebase.initializeApp();                    // Firebase
+  runApp(const MyApp()); //const is optional...
 }
 
 class MyApp extends StatelessWidget {
@@ -11,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Pangloss',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -31,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Pangloss'),
     );
   }
 }
